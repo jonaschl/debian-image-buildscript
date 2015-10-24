@@ -1,6 +1,6 @@
 #!/bin/bash
 date=$(date +%Y-%m-%d)
-read -p -r "Bitte gib deinen Benutzernamen an: " "$username"
+read -p -r "Bitte gib deinen Benutzernamen an: " $username
 #read -p "Bitte gib dein passwort ein" $password
 #read -p "Bitte gib deine E-Mail adresse ein" $email
 # check if mkimage .sh exist and is up to date
