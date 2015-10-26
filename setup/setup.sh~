@@ -1,0 +1,3 @@
+#!/bin/bash
+./install-docker.sh
+./install-debootstrap-from-aur.sh
