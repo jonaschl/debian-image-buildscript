@@ -16,7 +16,7 @@ if [ -d "$HOME/docker-debian-jessie-armv7/$date" ] ; then
 rm -d -d -r "$HOME/docker-debian-jessie-armv7/$date"
 mkdir -p "$HOME/docker-debian-jessie-armv7/$date"
 (cd "$HOME/docker/contrib" || exit
-sudo ./mkimage.sh -d "$HOME/docker-debian-jessie-armv7/$date" -t "$username/debian-jessie-armv7:$date" debootstrap --variant=minbase --include=inetutils-ping,iproute2 --components=main   jessie http://httpredir.debian.org/debian)
+sudo ./mkimage.sh -d "$HOME/docker-debian-jessie-armv7/$date" -t "$username/debian-jessie-armv7:$date" debootstrap --variant=minbase --include=inetutils-ping,iproute2,apt-utils --components=main   jessie http://httpredir.debian.org/debian)
 ( cd "$HOME/docker-debian-jessie-armv7/$date" || exit
 tag="${username}/debian-jessie-armv7:new"
 docker build --no-cache=true -t "$tag" .)
@@ -35,7 +35,7 @@ else
 # create the directory and build the docker image with the tag "debian-jessie.$date"
 mkdir -p "$HOME/docker-debian-jessie-armv7/$date"
 (cd "$HOME/docker/contrib" || exit
-sudo ./mkimage.sh -d "$HOME/docker-debian-jessie-armv7/$date" -t "$username/debian-jessie-armv7:$date" debootstrap --variant=minbase --include=inetutils-ping,iproute2 --components=main   jessie http://httpredir.debian.org/debian)
+sudo ./mkimage.sh -d "$HOME/docker-debian-jessie-armv7/$date" -t "$username/debian-jessie-armv7:$date" debootstrap --variant=minbase --include=inetutils-ping,iproute2,apt-utils --components=main   jessie http://httpredir.debian.org/debian)
 ( cd "$HOME/docker-debian-jessie-armv7/$date" || exit
 echo "$username/debian-jessie-armv7:$date"
 echo $username
