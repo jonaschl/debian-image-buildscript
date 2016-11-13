@@ -1,4 +1,7 @@
 #!/bin/bash
+
+. /usr/lib/docker-shell-scripts-lib/tag.sh
+
 if [ -z $1 ] ; then
 errorlevel=1
 else
@@ -11,6 +14,9 @@ mkdir -p "/tmp/build-debian-jessie-armv7-$date"
 ( cd "/tmp/build-debian-jessie-armv7-$date" || exit
 tag="${username}/debian-jessie-armv7:new"
 docker build --no-cache=true -t "$tag" .)
+
+echo $(tag-image "${username}/debian-jessie-armv7")
+
 # cleanup
 rm -f -r -d /tmp/build-debian-jessie-armv7-$date/
 errorlevel=$?
